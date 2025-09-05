@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CineSuggest Design System - Cinematic themes with vibrant accents */
+
+@layer base {
+  :root {
+    /* Light Mode - Soft off-white with pastel blue accent */
+    --background: 60 9% 98%; /* #FDFDFA */
+    --foreground: 222 84% 5%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    
+    --primary: 211 100% 70%; /* Pastel blue accent */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 5%;
+    
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 211 100% 70%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 211 100% 70%;
+    
+    /* CineSuggest specific tokens */
+    --cinema-glow: 211 100% 70%;
+    --cinema-card: 0 0% 100%;
+    --cinema-overlay: 0 0% 0%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Mode - Near-black with vibrant gold accent */
+    --background: 0 0% 8%; /* #141414 */
+    --foreground: 0 0% 95%;
+    
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 45 100% 60%; /* Vibrant gold accent */
+    --primary-foreground: 0 0% 8%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 45 100% 60%;
+    --accent-foreground: 0 0% 8%;
+    
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 95%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 60%;
+    
+    /* CineSuggest specific tokens */
+    --cinema-glow: 45 100% 60%;
+    --cinema-card: 0 0% 12%;
+    --cinema-overlay: 0 0% 0%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Movie card hover effects */
+  .movie-card {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .movie-card:hover {
+    @apply scale-[1.08];
+    box-shadow: 0 25px 50px -12px hsl(var(--cinema-glow) / 0.25),
+                0 0 0 1px hsl(var(--cinema-glow) / 0.1);
+  }
+  
+  /* Scrollbar styling for carousels */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Modal backdrop blur */
+  .modal-backdrop {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--cinema-overlay) / 0.8);
+  }
+  
+  /* Smooth text animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
